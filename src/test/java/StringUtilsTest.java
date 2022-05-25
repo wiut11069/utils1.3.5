@@ -1,18 +1,30 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ *
+ */
 public class StringUtilsTest {
 
+    /**
+     * @throws Exception //
+     */
     @Test
     public void testIsNumberPositive() throws Exception {
         assertTrue(StringUtils.isPositiveNumber("1"));
     }
 
+    /**
+     * @throws Exception //
+     */
     @Test
     public void testIsNumberNegative() throws Exception {
         assertFalse(StringUtils.isPositiveNumber("-1"));
     }
 
+    /**
+     *
+     */
     //Checks for non-numeric or wrong input cases
     @Test
     public void testWrongInputException(){
@@ -24,6 +36,9 @@ public class StringUtilsTest {
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
+    /**
+     *
+     */
     //Checks for letter input cases
     @Test
     public void testLetterInputException(){
@@ -35,6 +50,9 @@ public class StringUtilsTest {
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
+    /**
+     *
+     */
     //Checks for null input cases
     @Test
     public void testNullPointerException(){
@@ -46,6 +64,9 @@ public class StringUtilsTest {
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
+    /**
+     *
+     */
     //Checks for Empty input cases
     @Test
     public void testEmptyInputException(){
@@ -58,12 +79,18 @@ public class StringUtilsTest {
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
+    /**
+     * @throws Exception //
+     */
     //Checks for double inputs
     @Test
     public void testIsDoublePositive() throws Exception {
         assertTrue(StringUtils.isPositiveNumber("1.20"));
     }
 
+    /**
+     * 
+     */
     //Checks for wrong double inputs
     @Test
     public void testWrongDoubleInput(){
