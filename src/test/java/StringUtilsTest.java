@@ -11,7 +11,8 @@ public class StringUtilsTest {
      */
     @Test
     public void testIsNumberPositive() throws Exception {
-        assertTrue(StringUtils.isPositiveNumber("1"));
+        StringUtils utils = new StringUtils();
+        assertTrue(utils.isPositiveNumber("1"));
     }
 
     /**
@@ -19,7 +20,8 @@ public class StringUtilsTest {
      */
     @Test
     public void testIsNumberNegative() throws Exception {
-        assertFalse(StringUtils.isPositiveNumber("-1"));
+        StringUtils utils = new StringUtils();
+        assertFalse(utils.isPositiveNumber("-1"));
     }
 
     /**
@@ -28,8 +30,9 @@ public class StringUtilsTest {
     //Checks for non-numeric or wrong input cases
     @Test
     public void testWrongInputException(){
+        StringUtils utils = new StringUtils();
         WrongInputException exception = assertThrows(WrongInputException.class, () -> {
-            StringUtils.isPositiveNumber("-.");
+            utils.isPositiveNumber("-.");
         });
         String expectedMessage = "Input is not numeric!";
         String actualMessage = exception.getMessage();
@@ -42,8 +45,9 @@ public class StringUtilsTest {
     //Checks for letter input cases
     @Test
     public void testLetterInputException(){
+        StringUtils utils = new StringUtils();
         WrongInputException exception = assertThrows(WrongInputException.class, () -> {
-            StringUtils.isPositiveNumber("asd");
+            utils.isPositiveNumber("asd");
         });
         String expectedMessage = "Input is not numeric!";
         String actualMessage = exception.getMessage();
@@ -56,8 +60,9 @@ public class StringUtilsTest {
     //Checks for null input cases
     @Test
     public void testNullPointerException(){
+        StringUtils utils = new StringUtils();
         NullPointerException exception = assertThrows(NullPointerException.class, () -> {
-            StringUtils.isPositiveNumber(null);
+            utils.isPositiveNumber(null);
         });
         String expectedMessage = "Cannot invoke \"String.length()\" because \"str\" is null";
         String actualMessage = exception.getMessage();
@@ -70,8 +75,9 @@ public class StringUtilsTest {
     //Checks for Empty input cases
     @Test
     public void testEmptyInputException(){
+        StringUtils utils = new StringUtils();
          EmptyInputException exception = assertThrows(EmptyInputException.class, () -> {
-            StringUtils.isPositiveNumber("");
+            utils.isPositiveNumber("");
         });
         String expectedMessage = "Empty Input!";
         String actualMessage = exception.getMessage();
@@ -85,17 +91,19 @@ public class StringUtilsTest {
     //Checks for double inputs
     @Test
     public void testIsDoublePositive() throws Exception {
-        assertTrue(StringUtils.isPositiveNumber("1.20"));
+        StringUtils utils = new StringUtils();
+        assertTrue(utils.isPositiveNumber("1.20"));
     }
 
     /**
-     * 
+     *
      */
     //Checks for wrong double inputs
     @Test
     public void testWrongDoubleInput(){
+        StringUtils utils = new StringUtils();
         WrongInputException exception = assertThrows(WrongInputException.class, () -> {
-            StringUtils.isPositiveNumber("1.2.0");
+            utils.isPositiveNumber("1.2.0");
         });
         String expectedMessage = "Input is not numeric!";
         String actualMessage = exception.getMessage();
