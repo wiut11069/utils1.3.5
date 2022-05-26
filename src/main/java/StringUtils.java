@@ -1,3 +1,5 @@
+import java.util.Optional;
+
 /**
  *
  */
@@ -7,15 +9,21 @@ public class StringUtils {
      * @return boolean
      * @throws Exception //throws WrongInputException or EmptyInputException
      */
+
     public boolean isPositiveNumber(String str) throws Exception {
-        isBlank(str);
-        boolean positive = isPositive(str);
-        int index = 0;
-        if (!positive){
-            index++;
+        Optional<String> strOption = Optional.ofNullable(str);
+        if (strOption.isPresent()){
+            isBlank(str);
+            boolean positive = isPositive(str);
+            int index = 0;
+            if (!positive){
+                index++;
+            }
+            containsCharacters(str, index);
+            return positive;
+        }else{
+            throw new WrongInputException("Null");
         }
-        containsCharacters(str, index);
-        return positive;
     }
 
     /**
@@ -37,7 +45,7 @@ public class StringUtils {
     //Checks if input is positive
     private boolean isPositive(String str) throws WrongInputException {
         boolean positive = !org.apache.commons.lang3.StringUtils.startsWith(str, "-");
-        if (!positive) {
+        if (!positive) { // -41.1
             if (str.length() < 2 || str.charAt(1) == 46) {
                 throw new WrongInputException("Input is not numeric!");
             }

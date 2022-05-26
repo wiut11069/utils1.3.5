@@ -61,10 +61,10 @@ public class StringUtilsTest {
     @Test
     public void testNullPointerException(){
         StringUtils utils = new StringUtils();
-        NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+        WrongInputException exception = assertThrows(WrongInputException.class, () -> {
             utils.isPositiveNumber(null);
         });
-        String expectedMessage = "Cannot invoke \"String.length()\" because \"str\" is null";
+        String expectedMessage = "Null";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
     }
